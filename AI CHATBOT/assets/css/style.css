@@ -182,12 +182,16 @@ body {
     outline: 1px solid #cccce5;
 }
 
+.chat-footer .chat-form:focus-within {
+    outline: 2px solid #5350c4;
+}
+
 .chat-form .message-input {
     border: none;
     outline: none;
     height: 47px;
     width: 100%;
-    resize: 0;
+    resize: none;
     font-size: 0.95rem;
     padding: 14px 0px 13px 18px;
     border-radius: inherit;
@@ -205,8 +209,29 @@ body {
 .chat-form .chat-controls button {
     height: 35px;
     width: 35px;
+    font-size: 1.15rem;
     border: none;
     cursor: pointer;
     color: #706db0;
+    background: none;
+    border-radius: 50%;
+    transition: 0.2s ease;
+}
+
+.chat-form .chat-controls #send-message {
+    color: #fff;
+    display: none;
+    background: #5350c4;
+}
+
+.chat-form .message-input:valid ~.chat-controls #send-message {
+    display: block;
+}
+
+.chat-form .chat-controls #send-message:hover {
+    background: #3d39ac;
+}
+
+.chat-form .chat-controls button:hover {
     background: #f1f1ff;
 }
