@@ -1,26 +1,17 @@
 # Projectplan Chatbot Website
 
 ## Algemene Informatie over het project
-**Naam opdrachtgever:** [Naam invullen] • **Afdeling:** [Afdeling invullen]
-**Projectmanager:** [Naam invullen] • **Teamlead development:** [Naam invullen] • **Teamleden:** [Namen invullen]
 **Naam Project:** Chatbot Website
 
 ---
 
 ## Introductie & Projectomschrijving
-In dit project bouwen we een website waar gebruikers met een chatbot kunnen communiceren. De chatbot biedt functionaliteiten zoals het uploaden van afbeeldingen, een emoji-picker en wordt aangedreven door AI. Daarnaast is de website volledig responsief, zodat deze zowel op desktop als mobiel optimaal werkt. Deze projectomschrijving vormt de basis waarop alle user stories en functionele eisen zijn gebaseerd.
+In dit project bouw ik een website waar gebruikers met een chatbot kunnen communiceren. De chatbot biedt functionaliteiten zoals het uploaden van afbeeldingen, een emoji-picker en wordt aangedreven door AI. Daarnaast is de website volledig responsief, zodat deze zowel op desktop als mobiel optimaal werkt. Deze projectomschrijving vormt de basis waarop alle user stories en functionele eisen zijn gebaseerd.
 
 ---
 
 ## Projectdoel
-Het doel is om een interactieve, gebruiksvriendelijke chatbot-website te realiseren die voldoet aan de wensen van de opdrachtgever. Hierbij staat een optimale gebruikerservaring centraal door een volledig responsive design en vloeiende animaties.
-
----
-
-## Randvoorwaarden
-1. De projectomschrijving beschrijft duidelijk waar de user stories op gebaseerd zijn.
-2. Er zijn minimaal vijf volledig uitgewerkte user stories, elk volgens het format:
-   **‘Als [rol] wil ik [functionaliteit] zodat ik [reden]’**
+Het doel is om een interactieve, gebruiksvriendelijke chatbot-website te maken. Hierbij staat een optimale gebruikerservaring centraal door een volledig responsive design en vloeiende animaties.
 
 ---
 
@@ -48,7 +39,7 @@ Het doel is om een interactieve, gebruiksvriendelijke chatbot-website te realise
 - **Wil ik:** afbeeldingen kunnen uploaden in de chat
 - **Zodat ik:** visuele content kan delen.
 **Acceptatiecriteria:**
-- Uploadfunctie werkt foutloos in moderne browsers.
+- Uploadfunctie werkt foutloos in een modern browser.
 - Afbeeldingen worden correct weergegeven.
 **Prioriteit:** Must
 
@@ -88,13 +79,3 @@ Het doel is om een interactieve, gebruiksvriendelijke chatbot-website te realise
 - De website is responsief en geoptimaliseerd voor alle gangbare apparaten.
 - Vloeiende en functionele animaties zijn geïmplementeerd met de gekozen animatie bibliotheek(en).
 - De opdrachtgever heeft de implementatie gevalideerd en goedgekeurd.
-
----
-
-## Aandachtspunten: Veelgemaakte Fouten
-- **Eisen/Wensen:** Zorg dat de eisen en wensen van de opdrachtgever duidelijk in de projectomschrijving zijn opgenomen.
-- **Definition of Done:** Leg duidelijk vast wat de Definition of Done is, zodat er geen onduidelijkheden ontstaan.
-- **User Stories Format:** Gebruik altijd het format ‘Als … wil ik … zodat ik …’ en zorg dat elke user story acceptatiecriteria en een prioriteit (bijv. via een MoSCoW analyse) bevat.
-- **Details:** De set user stories moet een volledige weerspiegeling zijn van de functionele en niet-functionele eisen, inclusief essentiële en gedetailleerde onderdelen.
-
----
