@@ -79,8 +79,9 @@ body {
     margin-bottom: 82px;
     overflow-x: auto;
     flex-direction: column;
+    scrollbar-width: thin;
+    scrollbar-color: #ccccf5 transparent;
 }
-
 
 .chat-body .message .bot-avatar {
     height: 35px;
