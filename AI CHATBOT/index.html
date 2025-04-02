@@ -38,7 +38,11 @@
             <textarea placeholder="Message..." class="message-input" required></textarea>
             <div class="chat-controls">
                 <button class="material-symbols-rounded">sentiment_satisfied</button>
-                <button class="material-symbols-rounded">attach_file</button>
+                <div class="file-upload-wrapper">
+                    <input type="file" accept="images/*" id="file-input" hidden>
+                    <img src="#">
+                    <button type="button" id="file-upload" class="material-symbols-rounded">attach_file</button>
+                </div>
                 <button class="material-symbols-rounded" id="send-message">arrow_upward</button>
             </div>
         </form>
