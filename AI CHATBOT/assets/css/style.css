@@ -8,22 +8,64 @@
 }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
     background: linear-gradient(#EEEEFF, #C8C7FF);
 }
 
+#chatbot-toggler {
+    position: fixed;
+    bottom: 30px;
+    right: 35px;
+    border: none;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    border-radius: 50%;
+    background: #5350c4;
+    transition: all .2 ease;
+}
+
+body.show-chatbot #chatbot-toggler {
+    transform: rotate(90deg);
+}
+#chatbot-toggler span {
+    color: #fff;
+    position: absolute;
+}
+
+body.show-chatbot #chatbot-toggler span:first-child,
+#chatbot-toggler span:last-child {
+    opacity: 0;
+}
+
+body.show-chatbot #chatbot-toggler span:last-child {
+    opacity: 1;
+}
 .chatbot-popup {
-    position: relative;
+    position: fixed;
+    right: 35px;
+    bottom: 90px;
     width: 420px;
     background: #fff;
     overflow: hidden;
     border-radius: 15px;
+    opacity: 0;
+    transform: scale(0.2);
+    transform-origin: bottom right;
+    pointer-events: none;
     box-shadow: 0px 10px 11px 0px rgba(0,0,0,0.2);
+    transition: all .1s ease;
 }
 
+body.show-chatbot .chatbot-popup {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
 .chat-header {
     display: flex;
     align-items: center;
@@ -183,6 +225,7 @@ body {
 
 .chat-footer .chat-form {
     display: flex;
+    position: relative;
     align-items: center;
     background: #fff;
     border-radius: 32px;
@@ -199,9 +242,16 @@ body {
     height: 47px;
     width: 100%;
     resize: none;
+    max-height: 180px;
     font-size: 0.95rem;
     padding: 14px 0px 13px 18px;
     border-radius: inherit;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+.chat-form .message-input:hover {
+    scrollbar-color: #ccccf5 transparent;
 }
 
 .chat-form .chat-controls {
@@ -272,4 +322,19 @@ body {
 .chat-form .file-upload-wrapper.file-uploaded img,
 .chat-form .file-upload-wrapper.file-uploaded:hover  #file-cancel  {
     display: block;
+}
+
+em-emoji-picker {
+    position: absolute;
+    visibility: hidden;
+    left: 50%;
+    top: -337px;
+    width: 100%;
+    max-width: 350px;
+    max-height: 330px;
+    transform: translateX(-50%);
+}
+
+body.show-emoji-picker em-emoji-picker{
+    visibility: visible;
 }
