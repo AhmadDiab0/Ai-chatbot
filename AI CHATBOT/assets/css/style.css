@@ -11,13 +11,58 @@ body {
   background: linear-gradient(#eeffff, #c7d8ff);
 }
 
+@keyframes animMarker {
+  0% {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  100% {
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
+}
+
+@keyframes animShadow {
+  0% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.animation {
+  font: bold 500% Consolas, Monaco, monospace;
+  border-right: 0.1em solid black;
+  width: 18.2ch;
+  position: fixed;
+  right: 35%;
+  bottom: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-animation: typing 3s steps(18, end),
+    blink-caret 0.5s step-end infinite alternate;
+}
+
 #chatbot-toggler {
   position: fixed;
-  bottom: 30px;
-  right: 35px;
+  bottom: 40px;
+  right: 175px;
   border: none;
-  height: 50px;
-  width: 50px;
+  height: 75px;
+  width: 75px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,9 +91,10 @@ body.show-chatbot #chatbot-toggler span:last-child {
 }
 .chatbot-popup {
   position: fixed;
-  right: 35px;
-  bottom: 90px;
-  width: 420px;
+  right: 10%;
+  bottom: 10%;
+  width: 80%;
+  height: 80%;
   background: #fff;
   overflow: hidden;
   border-radius: 15px;
@@ -57,7 +103,7 @@ body.show-chatbot #chatbot-toggler span:last-child {
   transform-origin: bottom right;
   pointer-events: none;
   box-shadow: 0px 10px 11px 0px rgba(0, 0, 0, 0.2);
-  transition: all 0.1s ease;
+  transition: all 0.3s ease;
 }
 
 body.show-chatbot .chatbot-popup {
@@ -338,7 +384,7 @@ body.show-emoji-picker em-emoji-picker {
   visibility: visible;
 }
 
-@media (max-width: 520px) {
+@media (max-width: 1920px) {
   #chatbot-toggler {
     right: 20px;
     bottom: 20px;
