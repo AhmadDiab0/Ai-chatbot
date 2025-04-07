@@ -17,27 +17,50 @@ Het project richt zich op het demonstreren van:
 - **Frontend:** HTML, CSS, JavaScript
 - **API:** Google Gemini API
 - **Versiebeheer:** Git
-- **Projectmanagement:** Gebruik een tool als Jira of Pivotal (zie hieronder een screenshot van je backlog)
+- **Projectmanagement:** Gebruik van een visueel bord (zie backlog hieronder)
 
-## Backlog Screenshot
-
-([Backlog](https://imgur.com/a/UtaHpH9))
+---
 
 ## Uitwerking van User Stories
 
-| US-id | Wie| Wat| Waarom| Realistisch?| Prioriteit |
+| US-id | Wie           | Wat                                                                                                    | Waarom                                                                                                       | Realistisch?                                           | Prioriteit |
 | ----- | ------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------ | ---------- |
-| US-01 | Als gebruiker | Wil ik de chatbot kunnen openen en sluiten door op een knop te klikken| Zodat ik zelf de interface kan activeren wanneer ik een gesprek wil starten en minimaliseer als ik klaar ben | Ja, de toggle functionaliteit is reeds geïmplementeerd |Hoog|
-| US-02 | Als gebruiker | Wil ik een chat starten met de AI door een bericht te typen en op versturen te klikken| Zodat ik mijn vragen kan stellen en direct een antwoord van de AI kan ontvangen| Ja, dit vormt de kern van de applicatie| Hoog|
-| US-03 | Als gebruiker | Wil ik foto's kunnen uploaden tijdens het chatten| Zodat ik visuele informatie kan delen en de context van mijn berichten kan verbeteren| Ja, de foto-upload functie is aanwezig| Medium|
-| US-04 | Als gebruiker | Wil ik emojis kunnen toevoegen aan mijn berichten via een geïntegreerde emoji-picker| Zodat ik mijn emoties en toon kan verrijken tijdens het chatten| Ja, de emoji-picker is al geïntegreerd| Laag|
-| US-05 | Als gebruiker | Wil ik een visuele 'thinking' indicator zien wanneer de AI bezig is met het genereren van een antwoord | Zodat ik weet dat mijn bericht in behandeling is en dat er een reactie komt| Ja, de indicator wordt getoond tijdens de verwerking|Medium|
+| US-01 | Als gebruiker | Wil ik de chatbot kunnen openen en sluiten door op een knop te klikken                                 | Zodat ik zelf de interface kan activeren wanneer ik een gesprek wil starten en minimaliseer als ik klaar ben | Ja, de toggle functionaliteit is reeds geïmplementeerd | Hoog       |
+| US-02 | Als gebruiker | Wil ik een chat starten met de AI door een bericht te typen en op versturen te klikken                 | Zodat ik mijn vragen kan stellen en direct een antwoord van de AI kan ontvangen                              | Ja, dit vormt de kern van de applicatie                | Hoog       |
+| US-03 | Als gebruiker | Wil ik foto's kunnen uploaden tijdens het chatten                                                      | Zodat ik visuele informatie kan delen en de context van mijn berichten kan verbeteren                        | Ja, de foto-upload functie is aanwezig                 | Medium     |
+| US-04 | Als gebruiker | Wil ik emojis kunnen toevoegen aan mijn berichten via een geïntegreerde emoji-picker                   | Zodat ik mijn emoties en toon kan verrijken tijdens het chatten                                              | Ja, de emoji-picker is al geïntegreerd                 | Laag       |
+| US-05 | Als gebruiker | Wil ik een visuele 'thinking' indicator zien wanneer de AI bezig is met het genereren van een antwoord | Zodat ik weet dat mijn bericht in behandeling is en dat er een reactie komt                                  | Ja, de indicator wordt getoond tijdens de verwerking   | Medium     |
 
-# Sprint 1
+---
 
-| Dag| User Stories| Doing| Done|
-| ---------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Day 1 & 2**   | - **US-01 (MUST)**: Chatbot openen/sluiten<br>- **US-02 (MUST)**: Chat starten met de AI| - **US-02** Berichten versturen/ontvangen| - **US-01** Knop voor openen/sluiten toevoegen|
-| **Day 3 & 4**   | - **US-01 (MUST)**: Chatbot openen/sluiten<br>- **US-02 (MUST)**: Chat starten met de AI| - **US-01** Animaties en styling voor openen/sluiten| - **US-02** Integratie met AI-API|
-| **Day 5 & 6** | - **US-03 (SHOULD)**: Foto uploaden<br>- **US-04 (SHOULD)**: Emojis toevoegen<br>- **US-05 (SHOULD)**: 'Thinking' indicator | - **US-03** Bestanden selecteren en uploaden<br>- **US-03** Preview tonen in de chat | **US-01** Knop voor openen/sluiten toevoegen|
-| **Day 7**     | - **US-03 (SHOULD)**: Foto uploaden<br>- **US-04 (SHOULD)**: Emojis toevoegen<br>- **US-05 (SHOULD)**: 'Thinking' indicator | _(niets in Doing)_| - **US-04** Emojis correct weergeven<br>- **US-05** Visuele indicator tonen tijdens verwerking<br>- **US-05 (SHOULD)** Indicator verbergen zodra antwoord |
+## Backlog & Planning
+
+### Sprint 1 Planning
+
+| Dag           | Planning (wat ik wil doen)                                                                                                         |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| **Dag 1 & 2**   | Vandaag begin ik met de basisfunctionaliteit: de chatbot moet kunnen openen/sluiten via een knop en ik wil een eerste chat starten. Daarnaast voeg ik ook de 'thinking' indicator toe zodat de gebruiker ziet wanneer het AI-model bezig is. |
+| **Dag 3 & 4**   | Deze dagen werk ik verder aan het kunnen versturen en ontvangen van berichten via de AI. Ook integreer ik de API en test ik het gesprek met de AI. |
+| **Dag 5 & 6**   | Nu ga ik werken aan het uploaden van bestanden (foto’s). De gebruiker moet een afbeelding kunnen kiezen, tonen, en eventueel annuleren. |
+| **Dag 7**       | Ik rond de emoji-picker functionaliteit af en zorg ervoor dat emojis correct worden weergegeven in berichten. Alles wordt deze dag visueel gepolijst en gecheckt. |
+
+---
+
+## Bewijs van voortgang
+
+### ([Backlog screenshot](https://imgur.com/a/UtaHpH9))
+
+Je ziet in de backlog (zie screenshot hierboven) wat ik uiteindelijk heb gedaan. Het bord toont of ik alles wat ik had gepland ook echt heb afgerond en wanneer.
+
+Bijvoorbeeld:
+- Op dag 1 & 2 heb ik **US-01** (knop & styling), **US-02** (chat starten) én **US-05** ('thinking' indicator) afgerond ✔️
+- Op dag 3 & 4 werkte ik aan **US-02** (berichten + API) ✔️
+- Op dag 5 & 6 ging ik aan de slag met **US-03** (bestanden uploaden) ✔️
+- Op dag 7 maakte ik **US-04** af (emoji functionaliteit) ✔️
+
+
+## Reflectie
+
+Alle geplande user stories voor deze sprint zijn succesvol uitgevoerd.
+De backlog en de voortgang zijn zichtbaar gemaakt via een visueel bord.
+Ik ben tevreden met het resultaat en de structuur van dit project.
