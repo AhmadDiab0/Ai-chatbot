@@ -149,6 +149,7 @@ body.show-chatbot .chatbot-popup {
   padding: 25px 22px;
   display: flex;
   gap: 20px;
+  height: 900px;
   margin-bottom: 82px;
   overflow-x: auto;
   flex-direction: column;
