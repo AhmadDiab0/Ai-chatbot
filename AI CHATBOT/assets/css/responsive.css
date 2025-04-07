@@ -1,0 +1,67 @@
+@media (max-width: 520px) {
+    #chatbot-toggler {
+      right: 20px;
+      bottom: 20px;
+    }
+
+    .chatbot-popup {
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      border-radius: 0;
+      width: 100%;
+    }
+
+    .chatbot-popup .chat-header {
+      padding: 12px 15px;
+    }
+
+    .chat-body {
+      height: calc(90% - 55px);
+      padding: 25px 15px;
+    }
+
+    .chat-footer {
+      padding: 10px 15px 15px;
+    }
+
+    .chat-form .file-upload-wrapper.file-upload #file-cancel {
+      opacity: 0;
+    }
+
+    em-emoji-picker {
+      left: 50%;
+      width: 110%;
+      max-width: 320px;
+    }
+  }
+
+  @media (max-width: 1920px) {
+    em-emoji-picker {
+      left: 85%;
+    }
+  }
+
+  @media (max-width: 1550px) {
+    em-emoji-picker {
+      left: 80%;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    em-emoji-picker {
+      left: 73%;
+    }
+  }
+
+  @media (max-width: 990px) {
+    em-emoji-picker {
+      left: 67%;
+    }
+  }
+
+  @media (max-width: 750px) {
+    em-emoji-picker {
+      left: 55%;
+    }
+  }

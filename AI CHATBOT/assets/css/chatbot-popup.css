@@ -1,0 +1,22 @@
+.chatbot-popup {
+    position: fixed;
+    right: 10%;
+    bottom: 10%;
+    width: 80%;
+    height: 80%;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 15px;
+    opacity: 0;
+    transform: scale(0.2);
+    transform-origin: bottom right;
+    pointer-events: none;
+    box-shadow: 0px 10px 11px 0px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  body.show-chatbot .chatbot-popup {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+  }

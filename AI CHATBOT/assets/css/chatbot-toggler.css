@@ -1,0 +1,33 @@
+#chatbot-toggler {
+    position: fixed;
+    bottom: 40px;
+    right: 175px;
+    border: none;
+    height: 75px;
+    width: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #5088c4;
+    transition: all 0.2 ease;
+  }
+
+  body.show-chatbot #chatbot-toggler {
+    transform: rotate(90deg);
+  }
+
+  #chatbot-toggler span {
+    color: #fff;
+    position: absolute;
+  }
+
+  body.show-chatbot #chatbot-toggler span:first-child,
+  #chatbot-toggler span:last-child {
+    opacity: 0;
+  }
+
+  body.show-chatbot #chatbot-toggler span:last-child {
+    opacity: 1;
+  }
