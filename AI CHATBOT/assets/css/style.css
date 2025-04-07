@@ -358,7 +358,7 @@ body.show-chatbot .chatbot-popup {
 em-emoji-picker {
   position: absolute;
   visibility: hidden;
-  left: 50%;
+  left: 87%;
   top: -337px;
   width: 100%;
   max-width: 350px;
@@ -398,5 +398,82 @@ body.show-emoji-picker em-emoji-picker {
 
   .chat-form .file-upload-wrapper.file-upload #file-cancel {
     opacity: 0;
+  }
+}
+@media (max-width: 1920px) {
+  em-emoji-picker {
+    position: absolute;
+    visibility: hidden;
+    left: 85%;
+    top: -337px;
+    width: 100%;
+    max-width: 350px;
+    max-height: 330px;
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 1550px) {
+  em-emoji-picker {
+    position: absolute;
+    visibility: hidden;
+    left: 80%;
+    top: -337px;
+    width: 100%;
+    max-width: 350px;
+    max-height: 330px;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1200px) {
+  em-emoji-picker {
+    position: absolute;
+    visibility: hidden;
+    left: 73%;
+    top: -337px;
+    width: 100%;
+    max-width: 350px;
+    max-height: 330px;
+    transform: translateX(-50%);
+  }
+}
+
+
+@media (max-width: 990px) {
+  em-emoji-picker {
+    position: absolute;
+    visibility: hidden;
+    left: 67%;
+    top: -337px;
+    width: 100%;
+    max-width: 350px;
+    max-height: 330px;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 750px) {
+  em-emoji-picker {
+    position: absolute;
+    visibility: hidden;
+    left: 55%;
+    top: -337px;
+    width: 100%;
+    max-width: 350px;
+    max-height: 330px;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 520px) {
+  em-emoji-picker {
+    position: absolute;
+    visibility: hidden;
+    left: 50%;
+    top: -337px;
+    width: 110%;
+    max-width: 320px;
+    max-height: 330px;
+    transform: translateX(-50%);
   }
 }
