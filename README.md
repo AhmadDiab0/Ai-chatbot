@@ -21,6 +21,13 @@ Het project richt zich op het demonstreren van:
 
 ---
 
+## Installatie / Gebruik
+
+1. Clone de repo
+2. Open `index.html` in je browser
+3. Klaar! Je kunt direct de chatbot gebruiken (voor AI-functionaliteit is een API key vereist)
+---
+
 ## Uitwerking van User Stories
 
 | US-id | Wie           | Wat                                                                                                    | Waarom                                                                                                       | Realistisch?                                           | Prioriteit |
