@@ -43,19 +43,6 @@ body {
   }
 }
 
-.animation {
-  font: bold 500% Consolas, Monaco, monospace;
-  border-right: 0.1em solid black;
-  width: 18.2ch;
-  position: fixed;
-  right: 35%;
-  bottom: 50%;
-  white-space: nowrap;
-  overflow: hidden;
-  -webkit-animation: typing 3s steps(18, end),
-    blink-caret 0.5s step-end infinite alternate;
-}
-
 #chatbot-toggler {
   position: fixed;
   bottom: 40px;
@@ -162,7 +149,6 @@ body.show-chatbot .chatbot-popup {
   padding: 25px 22px;
   display: flex;
   gap: 20px;
-  height: 460px;
   margin-bottom: 82px;
   overflow-x: auto;
   flex-direction: column;
@@ -214,7 +200,7 @@ body.show-chatbot .chatbot-popup {
 }
 
 .chat-body .user-message .attachment {
-  width: 50%;
+  width: 25%;
   margin-top: -5px;
   border-radius: 12px 2px 12px 12px;
 }
@@ -384,7 +370,7 @@ body.show-emoji-picker em-emoji-picker {
   visibility: visible;
 }
 
-@media (max-width: 1920px) {
+@media (max-width: 520px) {
   #chatbot-toggler {
     right: 20px;
     bottom: 20px;

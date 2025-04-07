@@ -1,81 +1,43 @@
-# Projectplan Chatbot Website
+# Project: AI Chat Website
 
-## Algemene Informatie over het project
-**Naam Project:** Chatbot Website
+## Projectomschrijving
 
----
+Deze website is ontwikkeld als een side-project waarbij gebruikers kunnen chatten met een AI, ondersteund door de Google Gemini API. De site is volledig responsive en biedt extra functionaliteiten zoals het uploaden van foto's en het gebruik van emojis. Het doel is om een moderne, toegankelijke en interactieve ervaring te creëren.
 
-## Introductie & Projectomschrijving
-In dit project bouw ik een website waar gebruikers met een chatbot kunnen communiceren. De chatbot biedt functionaliteiten zoals het uploaden van afbeeldingen, een emoji-picker en wordt aangedreven door AI. Daarnaast is de website volledig responsief, zodat deze zowel op desktop als mobiel optimaal werkt. Deze projectomschrijving vormt de basis waarop alle user stories en functionele eisen zijn gebaseerd.
+## Doel van het Project
 
----
+Het project richt zich op het demonstreren van:
 
-## Projectdoel
-Het doel is om een interactieve, gebruiksvriendelijke chatbot-website te maken. Hierbij staat een optimale gebruikerservaring centraal door een volledig responsive design en vloeiende animaties.
+- **Innovatieve technologie:** Integratie van AI via de Google Gemini API.
+- **Gebruiksvriendelijkheid:** Een responsive design met extra functies (foto-upload, emojis).
+- **Interactiviteit:** Directe chatmogelijkheden die zowel op desktop als mobiel werken.
 
----
+## Technologieën en Tools
 
-## Gebruikte Technieken
-- **HTML5, CSS3 & JavaScript:** De basis voor de website.
-- **Animatie Bibliotheken:** Denk bijvoorbeeld aan Anime.js of GSAP om vloeiende en dynamische animaties toe te voegen.
+- **Frontend:** HTML, CSS, JavaScript
+- **API:** Google Gemini API
+- **Versiebeheer:** Git
+- **Projectmanagement:** Gebruik een tool als Jira of Pivotal (zie hieronder een screenshot van je backlog)
 
-*Opmerking: Omdat de styling en animaties belangrijk zijn voor de gebruikerservaring, wordt extra aandacht besteed aan de keuze en implementatie van animatiebibliotheken.*
+## Backlog Screenshot
 
----
+([Backlog](https://imgur.com/a/UtaHpH9))
 
-## User Stories
+## Uitwerking van User Stories
 
-### User Story 1
-- **Als:** gebruiker
-- **Wil ik:** een overzichtelijke chatinterface
-- **Zodat ik:** snel en makkelijk vragen kan stellen.
-**Acceptatiecriteria:**
-- Interface laadt binnen 2 seconden.
-- Duidelijke en leesbare chatberichten.
-**Prioriteit:** Must (MoSCoW)
+| US-id | Wie| Wat| Waarom| Realistisch?| Prioriteit |
+| ----- | ------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------ | ---------- |
+| US-01 | Als gebruiker | Wil ik de chatbot kunnen openen en sluiten door op een knop te klikken| Zodat ik zelf de interface kan activeren wanneer ik een gesprek wil starten en minimaliseer als ik klaar ben | Ja, de toggle functionaliteit is reeds geïmplementeerd |Hoog|
+| US-02 | Als gebruiker | Wil ik een chat starten met de AI door een bericht te typen en op versturen te klikken| Zodat ik mijn vragen kan stellen en direct een antwoord van de AI kan ontvangen| Ja, dit vormt de kern van de applicatie| Hoog|
+| US-03 | Als gebruiker | Wil ik foto's kunnen uploaden tijdens het chatten| Zodat ik visuele informatie kan delen en de context van mijn berichten kan verbeteren| Ja, de foto-upload functie is aanwezig| Medium|
+| US-04 | Als gebruiker | Wil ik emojis kunnen toevoegen aan mijn berichten via een geïntegreerde emoji-picker| Zodat ik mijn emoties en toon kan verrijken tijdens het chatten| Ja, de emoji-picker is al geïntegreerd| Laag|
+| US-05 | Als gebruiker | Wil ik een visuele 'thinking' indicator zien wanneer de AI bezig is met het genereren van een antwoord | Zodat ik weet dat mijn bericht in behandeling is en dat er een reactie komt| Ja, de indicator wordt getoond tijdens de verwerking|Medium|
 
-### User Story 2
-- **Als:** gebruiker
-- **Wil ik:** afbeeldingen kunnen uploaden in de chat
-- **Zodat ik:** visuele content kan delen.
-**Acceptatiecriteria:**
-- Uploadfunctie werkt foutloos in een modern browser.
-- Afbeeldingen worden correct weergegeven.
-**Prioriteit:** Must
+# Sprint 1
 
-### User Story 3
-- **Als:** gebruiker
-- **Wil ik:** een emoji-picker gebruiken
-- **Zodat ik:** mijn emoties in de chat kan uitdrukken.
-**Acceptatiecriteria:**
-- Emoji-picker is intuïtief en reageert snel.
-- Alle gangbare emoji’s zijn beschikbaar.
-**Prioriteit:** Should
-
-### User Story 4
-- **Als:** gebruiker
-- **Wil ik:** dat de website volledig responsief is
-- **Zodat ik:** ook op mobiele apparaten een optimale ervaring heb.
-**Acceptatiecriteria:**
-- Responsive design test in verschillende schermformaten.
-- Geen verlies aan functionaliteit op kleinere schermen.
-**Prioriteit:** Must
-
-### User Story 5
-- **Als:** gebruiker
-- **Wil ik:** vloeiende animaties tussen de chatberichten
-- **Zodat ik:** een dynamische en prettige gebruikerservaring ervaar.
-**Acceptatiecriteria:**
-- Animaties zijn vloeiend en zonder merkbare vertragingen.
-- Geen hinder bij het lezen van chatberichten.
-**Prioriteit:** Could
-
----
-
-## Definition of Done (DoD)
-- Alle functionaliteiten zijn volledig ontwikkeld en getest volgens de acceptatiecriteria.
-- De projectomschrijving en alle randvoorwaarden zijn volledig en duidelijk gedocumenteerd.
-- Alle user stories zijn volgens het format uitgewerkt, met bijbehorende acceptatiecriteria en prioriteiten (MoSCoW).
-- De website is responsief en geoptimaliseerd voor alle gangbare apparaten.
-- Vloeiende en functionele animaties zijn geïmplementeerd met de gekozen animatie bibliotheek(en).
-- De opdrachtgever heeft de implementatie gevalideerd en goedgekeurd.
+| Dag| User Stories| Doing| Done|
+| ---------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Day 1 & 2**   | - **US-01 (MUST)**: Chatbot openen/sluiten<br>- **US-02 (MUST)**: Chat starten met de AI| - **US-02** Berichten versturen/ontvangen| - **US-01** Knop voor openen/sluiten toevoegen|
+| **Day 3 & 4**   | - **US-01 (MUST)**: Chatbot openen/sluiten<br>- **US-02 (MUST)**: Chat starten met de AI| - **US-01** Animaties en styling voor openen/sluiten| - **US-02** Integratie met AI-API|
+| **Day 5 & 6** | - **US-03 (SHOULD)**: Foto uploaden<br>- **US-04 (SHOULD)**: Emojis toevoegen<br>- **US-05 (SHOULD)**: 'Thinking' indicator | - **US-03** Bestanden selecteren en uploaden<br>- **US-03** Preview tonen in de chat | **US-01** Knop voor openen/sluiten toevoegen|
+| **Day 7**     | - **US-03 (SHOULD)**: Foto uploaden<br>- **US-04 (SHOULD)**: Emojis toevoegen<br>- **US-05 (SHOULD)**: 'Thinking' indicator | _(niets in Doing)_| - **US-04** Emojis correct weergeven<br>- **US-05** Visuele indicator tonen tijdens verwerking<br>- **US-05 (SHOULD)** Indicator verbergen zodra antwoord |
