@@ -41,40 +41,6 @@ Het project richt zich op het demonstreren van:
 
 ---
 
-## Backlog & Planning
-
-### Sprint 1 Planning
-
-| Dag   | Wat ga ik doen                                                                     | User-story    |
-| ----- | ---------------------------------------------------------------------------------- | ------------- |
-| **1** | Knop bouwen om chatbot te openen/sluiten<br> Basis responsive layout neerzetten | US-01 & US-05 |
-| **2** | ‘Thinking…’ indicator maken<br> Test-call naar Gemini API                       | US-02         |
-| **3** | Echte AI-koppeling afmaken<br> Foutmeldingen netjes tonen                       | US-02         |
-| **4** | Chat UI verder polishen<br> Korte speed-test (antwoord ≤ 3 sec)                 | US-02         |
-| **5** | Afbeelding kunnen kiezen & previewen                                            | US-03         |
-| **6** | Emoji-picker toevoegen<br> Emoji goed in tekstveld plaatsen                     | US-04         |
-| **7** | Mobile check & kleine bugs fixen<br> Screenshots + README updaten               | Niet gerelateerd met een userstory |
-
----
-
-## Bewijs van voortgang
-
-Tijdens het project heb ik de voortgang bijgehouden via:
-
-- **Scrum-board:** Taken in “Backlog”, “To Do”, “Doing” en “Done”, met labels voor Must/Should/Won’t.
-- **Versiebeheer (Git/GitHub):** Regelmatige, duidelijke commits waarin elke user story en bugfix terug te vinden is.
-
-#### ([Backlog](https://imgur.com/a/5aPrfXU))
-
-In de backlog (zie screenshot) staan al mijn geplande taken, inclusief hun prioriteit en sprintdag.
-
-**Bijvoorbeeld:**
-- **Dag 1–2:** US-01 (toggle knop openen/sluiten) en US-05 (responsive layout + ‘thinking’ indicator) volledig afgerond.
-- **Dag 3–4:** US-02: fetch-functie getest, API-integratie afgerond en foutmeldingen netjes afgehandeld.
-- **Dag 5:** US-03: file-input + inline preview gebouwd, mét MIME-type en grootte-checks.
-- **Dag 6:** US-04: EmojiMart geïmporteerd, emoji-picker knop toegevoegd en correct in tekstveld geplaatst.
-- **Dag 7:** Laatste mobile tweaks gedaan, kleine bugs opgelost en screenshots + README bijgewerkt.
-
 ## Reflectie
 
 Alle geplande user stories voor deze sprint zijn succesvol uitgevoerd.
