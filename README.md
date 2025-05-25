@@ -30,13 +30,14 @@ Het project richt zich op het demonstreren van:
 
 ## Uitwerking van User Stories
 
-| US-id | Wie           | Wat                                                                                                    | Waarom                                                                                                       | Realistisch?                                           | Prioriteit |
-| ----- | ------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------ | ---------- |
-| US-01 | Als gebruiker | Wil ik de chatbot kunnen openen en sluiten door op een knop te klikken                                 | Zodat ik zelf de interface kan activeren wanneer ik een gesprek wil starten en minimaliseer als ik klaar ben | Ja, de toggle functionaliteit is reeds geïmplementeerd | Hoog       |
-| US-02 | Als gebruiker | Wil ik een chat starten met de AI door een bericht te typen en op versturen te klikken                 | Zodat ik mijn vragen kan stellen en direct een antwoord van de AI kan ontvangen                              | Ja, dit vormt de kern van de applicatie                | Hoog       |
-| US-03 | Als gebruiker | Wil ik foto's kunnen uploaden tijdens het chatten                                                      | Zodat ik visuele informatie kan delen en de context van mijn berichten kan verbeteren                        | Ja, de foto-upload functie is aanwezig                 | Medium     |
-| US-04 | Als gebruiker | Wil ik emojis kunnen toevoegen aan mijn berichten via een geïntegreerde emoji-picker                   | Zodat ik mijn emoties en toon kan verrijken tijdens het chatten                                              | Ja, de emoji-picker is al geïntegreerd                 | Laag       |
-| US-05 | Als gebruiker | Wil ik een visuele 'thinking' indicator zien wanneer de AI bezig is met het genereren van een antwoord | Zodat ik weet dat mijn bericht in behandeling is en dat er een reactie komt                                  | Ja, de indicator wordt getoond tijdens de verwerking   | Medium     |
+| US-id | Wie| Wat (user-story)| Waarom (waarde)| Realistisch? (haalbaarheids-check vóór start)| Definition of Done (DoD)| Acceptatie­criteria (tests)| Prioriteit | Tijds­insch. |
+|-------|---------------|--------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|-----------|--------------|
+| US-01 | Als gebruiker  | wil ik de chatbot met één knop openen/sluiten|zodat ik zelf bepaal wanneer hij in beeld is| **Ja –** simpele JS-toggle; kennis aanwezig; ±2 u| Toggle-knop zichtbaar<br> Venster opent/sluit zonder errors<br> Staat blijft behouden|  Knop zichtbaar<br> 1e klik opent, 2e sluit<br> Geen console-errors| Must| 2 u |
+| US-02 | Als gebruiker  | wil ik AI-gegenereerde antwoorden ontvangen|zodat ik direct nuttige info krijg| **Ja –** Google Gemini API beschikbaar; documentatie doorgenomen; ±4 u implementatie| User-input naar API<br> Antwoord binnen 3 s|  200-response in Network tab<br> Antwoord <=3 s zichtbaar<br> Foutmelding bij API-error| Must| 4 u |
+| US-03 | Als gebruiker  | wil ik afbeeldingen kunnen uploaden tijdens het chatten| zodat ik visuele context kan delen| **Ja –** standaard `<input type="file">` + FileReader; eerder mee gewerkt; ±3 u| JPG/PNG ≤1 MB selecteerbaar<br> Inline preview<br> Base64 of blob mee in API-payload|  File-input accepteert JPG/PNG<br> Preview vóór verzenden<br> Duidelijke foutmelding bij te groot of verkeerd bestand| Must| 3 u |
+| US-04 | Als gebruiker  | wil ik emoji’s kunnen toevoegen via een picker| zodat ik emoties kan uitdrukken| **Ja –** EmojiMart library; straightforward integratie; ±2 u| Picker opent/sluit via knop<br> Emoji op cursor-positie in textarea|  Klik emoji-knop opent picker<br> Klik buiten sluit picker<br> Emoji verschijnt in tekstveld| Should | 2 u |
+| US-05 | Als gebruiker  | wil ik dat de chatbot volledig responsive is op mobiel, tablet en desktop| zodat ik hem overal prettig kan gebruiken| **Ja –** CSS media-queries/Bootstrap; ervaring mee; ±2 u| Layout <768 px zonder horizontale scroll<br> Buttons bruikbaar<br>  Geen elementen buiten viewport<br> Chat bruikbaar op 320 px breed scherm| Must| 2 u |
+| US-06 | Als beheerder | wil ik basis­statistieken zien (aantal chats, gemiddelde reactietijd) in een simpel dashboard (later)| zodat ik in de toekomst inzicht krijg in gebruik| **Nee –** vereist backend logging; buiten scope sprint 1 → gepland voor latere iteratie| — Wordt nu niet ontwikkeld| — N.v.t. in deze sprint| Won’t| — |
 
 ---
 
@@ -44,27 +45,35 @@ Het project richt zich op het demonstreren van:
 
 ### Sprint 1 Planning
 
-| Dag           | Planning (wat ik wil doen)                                                                                                         |
-|----------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| **Dag 1 & 2**   | Vandaag begin ik met de basisfunctionaliteit: de chatbot moet kunnen openen/sluiten via een knop en ik wil een eerste chat starten. Daarnaast voeg ik ook de 'thinking' indicator toe zodat de gebruiker ziet wanneer het AI-model bezig is. |
-| **Dag 3 & 4**   | Deze dagen werk ik verder aan het kunnen versturen en ontvangen van berichten via de AI. Ook integreer ik de API en test ik het gesprek met de AI. |
-| **Dag 5 & 6**   | Nu ga ik werken aan het uploaden van bestanden (foto’s). De gebruiker moet een afbeelding kunnen kiezen, tonen, en eventueel annuleren. |
-| **Dag 7**       | Ik rond de emoji-picker functionaliteit af en zorg ervoor dat emojis correct worden weergegeven in berichten. Alles wordt deze dag visueel gepolijst en gecheckt. |
+| Dag   | Wat ga ik doen                                                                     | User-story    |
+| ----- | ---------------------------------------------------------------------------------- | ------------- |
+| **1** | Knop bouwen om chatbot te openen/sluiten<br> Basis responsive layout neerzetten | US-01 & US-05 |
+| **2** | ‘Thinking…’ indicator maken<br> Test-call naar Gemini API                       | US-02         |
+| **3** | Echte AI-koppeling afmaken<br> Foutmeldingen netjes tonen                       | US-02         |
+| **4** | Chat UI verder polishen<br> Korte speed-test (antwoord ≤ 3 sec)                 | US-02         |
+| **5** | Afbeelding kunnen kiezen & previewen                                            | US-03         |
+| **6** | Emoji-picker toevoegen<br> Emoji goed in tekstveld plaatsen                     | US-04         |
+| **7** | Mobile check & kleine bugs fixen<br> Screenshots + README updaten               | Niet gerelateerd met een userstory |
 
 ---
 
 ## Bewijs van voortgang
 
-### ([Backlog screenshot](https://imgur.com/a/UtaHpH9))
+Tijdens het project heb ik de voortgang bijgehouden via:
 
-Je ziet in de backlog (zie screenshot hierboven) wat ik uiteindelijk heb gedaan. Het bord toont of ik alles wat ik had gepland ook echt heb afgerond en wanneer.
+- **Scrum-board:** Taken in “Backlog”, “To Do”, “Doing” en “Done”, met labels voor Must/Should/Won’t.
+- **Versiebeheer (Git/GitHub):** Regelmatige, duidelijke commits waarin elke user story en bugfix terug te vinden is.
 
-Bijvoorbeeld:
-- Op dag 1 & 2 heb ik **US-01** (knop & styling), **US-02** (chat starten) én **US-05** ('thinking' indicator) afgerond ✔️
-- Op dag 3 & 4 werkte ik aan **US-02** (berichten + API) ✔️
-- Op dag 5 & 6 ging ik aan de slag met **US-03** (bestanden uploaden) ✔️
-- Op dag 7 maakte ik **US-04** af (emoji functionaliteit) ✔️
+#### ([Backlog](https://imgur.com/a/5aPrfXU))
 
+In de backlog (zie screenshot) staan al mijn geplande taken, inclusief hun prioriteit en sprintdag.
+
+**Bijvoorbeeld:**
+- **Dag 1–2:** US-01 (toggle knop openen/sluiten) en US-05 (responsive layout + ‘thinking’ indicator) volledig afgerond.
+- **Dag 3–4:** US-02: fetch-functie getest, API-integratie afgerond en foutmeldingen netjes afgehandeld.
+- **Dag 5:** US-03: file-input + inline preview gebouwd, mét MIME-type en grootte-checks.
+- **Dag 6:** US-04: EmojiMart geïmporteerd, emoji-picker knop toegevoegd en correct in tekstveld geplaatst.
+- **Dag 7:** Laatste mobile tweaks gedaan, kleine bugs opgelost en screenshots + README bijgewerkt.
 
 ## Reflectie
 
