@@ -1,0 +1,38 @@
+/* Always visible chatbot container */
+.chatbot-container {
+  height: 100vh;
+  width: 100%;
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat body adjustments */
+.chatbot-container .chat-body {
+  flex: 1;
+  padding: 25px 22px;
+  overflow-y: auto;
+}
+
+/* Chat footer adjustments */
+.chatbot-container .chat-footer {
+  background: var(--card-bg);
+  padding: 15px 20px 22px;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Header adjustments */
+.chatbot-container .chat-header {
+  flex-shrink: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chatbot-container .chat-body {
+    padding: 15px;
+  }
+
+  .chatbot-container .chat-footer {
+    padding: 10px 15px 15px;
+  }
+}
