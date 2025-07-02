@@ -15,7 +15,7 @@ const googleProvider = new firebase.auth.GoogleAuthProvider();
 
 // === GEMINI API ===
 const API_KEY = "AIzaSyD_VXIB9bCRw9FebI2UgE5cRQEBdWm54uA";
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 
 // === DOM ELEMENTS ===
 const authModal = document.getElementById('auth-modal');
