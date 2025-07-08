@@ -66,24 +66,9 @@ const Utils = {
       }
 
       return {
-        data: dataUrl.split(",")[1], // Remove data:image/jpeg;base64, part
+        data: dataUrl.split(",")[1], 
         mime_type: mimeType
       };
-    }
-  },
-
-  // Export functionality
-  export: {
-    downloadJSON: (data, filename) => {
-      const blob = new Blob([JSON.stringify(data, null, 2)], {
-        type: 'application/json'
-      });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename;
-      a.click();
-      URL.revokeObjectURL(url);
     }
   },
 
@@ -148,34 +133,6 @@ const Utils = {
     }
   },
 
-  // Keyboard shortcuts
-  keyboard: {
-    setupShortcuts: () => {
-      document.addEventListener("keydown", (e) => {
-        // Ctrl/Cmd + N - New chat
-        if ((e.ctrlKey || e.metaKey) && e.key === "n") {
-          e.preventDefault();
-          document.getElementById('new-chat-btn')?.click();
-        }
-
-        // Ctrl/Cmd + F - Focus search
-        if ((e.ctrlKey || e.metaKey) && e.key === "f") {
-          e.preventDefault();
-          document.getElementById('chat-search-input')?.focus();
-        }
-
-        // Escape - Close modals/sidebar
-        if (e.key === "Escape") {
-          document.getElementById('auth-modal')?.classList.remove("show");
-          if (window.innerWidth <= 768) {
-            UIManager.closeMobileSidebar();
-          }
-        }
-      });
-    }
-  },
-
-  // Debounce utility
   debounce: (func, wait) => {
     let timeout;
     return function executedFunction(...args) {
@@ -188,7 +145,6 @@ const Utils = {
     };
   },
 
-  // Format date
   formatDate: (date, locale = 'nl-NL') => {
     if (!date) return 'Onbekend';
 

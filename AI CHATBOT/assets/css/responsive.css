@@ -1,63 +1,22 @@
-/* Update responsive styles for always visible chat */
 @media (max-width: 520px) {
-    /* Remove chatbot-toggler and chatbot-popup mobile styles */
-
     .chatbot-container {
       height: 100vh;
       border-radius: 0;
       width: 100%;
     }
-
-    .chatbot-container .chat-header {
-      padding: 12px 15px;
-    }
-
-    .chatbot-container .chat-body {
-      padding: 15px 10px;
-    }
-
-    .chatbot-container .chat-footer {
-      padding: 10px 15px 15px;
-    }
-
-    .chat-form .file-upload-wrapper.file-uploaded #file-cancel {
-      opacity: 0;
-    }
-
+    .chatbot-container .chat-header { padding: 12px 15px; }
+    .chatbot-container .chat-body { padding: 15px 10px; }
+    .chatbot-container .chat-footer { padding: 10px 15px 15px; }
+    .chat-form .file-upload-wrapper.file-uploaded #file-cancel { opacity: 0; }
     em-emoji-picker {
       left: 50%;
       width: 110%;
       max-width: 320px;
     }
-  }
-
-/* Keep existing emoji-picker responsive styles */
-@media (max-width: 1920px) {
-  em-emoji-picker {
-    left: 85%;
-  }
 }
-
-@media (max-width: 1550px) {
-  em-emoji-picker {
-    left: 80%;
-  }
-}
-
-@media (max-width: 1200px) {
-  em-emoji-picker {
-    left: 73%;
-  }
-}
-
-@media (max-width: 990px) {
-  em-emoji-picker {
-    left: 67%;
-  }
-}
-
-@media (max-width: 750px) {
-  em-emoji-picker {
-    left: 55%;
-  }
-}
+/* Emoji-picker responsive */
+@media (max-width: 1920px) { em-emoji-picker { left: 85%; } }
+@media (max-width: 1550px) { em-emoji-picker { left: 80%; } }
+@media (max-width: 1200px) { em-emoji-picker { left: 73%; } }
+@media (max-width: 990px) { em-emoji-picker { left: 67%; } }
+@media (max-width: 750px) { em-emoji-picker { left: 55%; } }

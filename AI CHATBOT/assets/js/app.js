@@ -1,4 +1,4 @@
-// === MAIN APPLICATION ===
+// === MAIN APPLICATION - Single Chat versie ===
 
 class ChatApp {
   constructor() {
@@ -10,7 +10,6 @@ class ChatApp {
     this.isInitialized = false;
   }
 
-  // Initialize the application
   async init() {
     if (this.isInitialized) return;
 
@@ -31,16 +30,12 @@ class ChatApp {
     // Setup authentication state listener
     this.setupAuthStateListener();
 
-    // Setup keyboard shortcuts
-    Utils.keyboard.setupShortcuts();
-
-    // Setup emoji picker (delayed)
+    // Setup emoji picker (delayed, want webcomponent laadt soms traag)
     setTimeout(() => this.setupEmojiPicker(), 1000);
 
     this.isInitialized = true;
   }
 
-  // Setup all event listeners
   setupEventListeners() {
     // Authentication
     this.setupAuthListeners();
@@ -56,26 +51,10 @@ class ChatApp {
       if (e.target.id === 'mobile-overlay') UIManager.closeMobileSidebar();
     });
 
-    // Auto-close mobile sidebar when chat is selected
-    document.getElementById('chat-list-container')?.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768 && e.target.closest('.chat-item')) {
-        setTimeout(UIManager.closeMobileSidebar, 300);
-      }
-    });
-
     // Window resize handler
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768) UIManager.closeMobileSidebar();
     });
-
-    // Chat functionality
-    document.getElementById('chat-search-input')?.addEventListener('input', (e) => {
-      const results = ChatService.searchChats(e.target.value);
-      UIManager.updateChatList(results);
-    });
-
-    document.getElementById('export-chat-btn')?.addEventListener('click', this.handleExportChat.bind(this));
-    document.getElementById('new-chat-btn')?.addEventListener('click', this.handleNewChat.bind(this));
 
     // Message input
     const messageInput = document.querySelector('.message-input');
@@ -98,7 +77,6 @@ class ChatApp {
     document.getElementById('send-message')?.addEventListener('click', this.handleSendMessage.bind(this));
   }
 
-  // Setup authentication event listeners
   setupAuthListeners() {
     // Login form
     document.getElementById('login-form')?.addEventListener('submit', async (e) => {
@@ -182,13 +160,11 @@ class ChatApp {
         Utils.message.showAuthError('Voer eerst je e-mailadres in.');
         return;
       }
-
       const result = await AuthService.resetPassword(email);
       Utils.message.showAuthError(result.message || result.error, result.success ? 'success' : 'error');
     });
   }
 
-  // Setup file upload functionality
   setupFileUpload() {
     const fileInput = document.getElementById('file-input');
     if (!fileInput) return;
@@ -232,7 +208,6 @@ class ChatApp {
     });
   }
 
-  // Setup authentication state listener
   setupAuthStateListener() {
     AuthService.onAuthStateChanged(async (user) => {
       if (user) {
@@ -246,19 +221,8 @@ class ChatApp {
           // Ensure user profile exists
           await AuthService.ensureUserProfile(user);
 
-          // Load chats
-          await ChatService.loadChats();
-
-          // Setup real-time chat list listener
-          ChatService.setupChatListListener();
-
-          // Create first chat if none exist
-          if (ChatService.getChats().length === 0) {
-            const newChat = await ChatService.createChat();
-            await ChatService.switchToChat(newChat.id, newChat.title);
-          } else {
-            UIManager.showWelcomeMessage();
-          }
+          // Init single chat
+          ChatService.init(user.uid);
 
         } catch (error) {
           console.error('❌ Error loading user data:', error);
@@ -287,31 +251,6 @@ class ChatApp {
     });
   }
 
-  // Handle new chat creation
-  async handleNewChat() {
-    try {
-      const newChat = await ChatService.createChat();
-      await ChatService.switchToChat(newChat.id, newChat.title);
-    } catch (error) {
-      console.error('Error creating new chat:', error);
-      UIManager.showErrorMessage('Kon geen nieuwe chat aanmaken.');
-    }
-  }
-
-  // Handle chat export
-  async handleExportChat() {
-    try {
-      const exportData = await ChatService.exportChat();
-      const filename = `${exportData.chatTitle}-export-${new Date().toISOString().split('T')[0]}.json`;
-      Utils.export.downloadJSON(exportData, filename);
-      UIManager.showSuccessMessage('Chat succesvol geëxporteerd!');
-    } catch (error) {
-      console.error('Error exporting chat:', error);
-      UIManager.showErrorMessage(error.message || 'Fout bij exporteren van chat.');
-    }
-  }
-
-  // Handle sending message
   async handleSendMessage(e) {
     e.preventDefault();
 
@@ -332,21 +271,12 @@ class ChatApp {
       UIManager.clearFilePreview();
       messageInput.dispatchEvent(new Event("input"));
 
-      // Create chat if needed
-      if (!ChatService.getCurrentChatId()) {
-        await ChatService.createChat();
-      }
-
-      // Save user message
-      try {
-        await ChatService.addMessage(
-          this.userData.message,
-          'user',
-          this.userData.file.data ? this.userData.file : null
-        );
-      } catch (error) {
-        console.error("Error saving message:", error);
-      }
+      // Save user message (direct naar singleChat array)
+      await ChatService.addMessage(
+        this.userData.message,
+        'user',
+        this.userData.file.data ? this.userData.file : null
+      );
 
       // Show user message in UI
       const userDiv = UIManager.createMessageElement(
@@ -396,7 +326,6 @@ class ChatApp {
     }
   }
 
-  // Setup emoji picker
   setupEmojiPicker() {
     if (typeof EmojiMart !== 'undefined' && document.querySelector('.chat-form')) {
       const picker = new EmojiMart.Picker({
@@ -423,16 +352,14 @@ class ChatApp {
     }
   }
 }
-
 // Initialize the application
 const app = new ChatApp();
 
-// Start the app when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => app.init());
 } else {
   app.init();
 }
 
-// Export for debugging
+
 window.ChatApp = app;
