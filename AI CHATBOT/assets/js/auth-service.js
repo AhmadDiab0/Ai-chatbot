@@ -1,9 +1,9 @@
-// === AUTHENTICATION SERVICE ===
+// Regelt alles rondom inloggen, registreren, uitloggen en wachtwoord vergeten.
 
 const AuthService = {
-  currentUser: null,
+  currentUser: null, // Hier bewaren we de huidige gebruiker
 
-  // Error message mapping
+  // Geeft een duidelijke foutmelding terug in het Nederlands.
   getErrorMessage: (error) => {
     const messages = {
       'auth/user-not-found': 'Geen account gevonden met dit e-mailadres.',
@@ -16,7 +16,7 @@ const AuthService = {
     return messages[error.code] || error.message || 'Er is een fout opgetreden.';
   },
 
-  // Register new user
+  // Een nieuwe gebruiker registreren met e-mail en wachtwoord.
   register: async (email, password, displayName) => {
     try {
       const result = await FirebaseService.auth.createUserWithEmailAndPassword(email, password);
@@ -28,7 +28,7 @@ const AuthService = {
     }
   },
 
-  // Login with email/password
+  // Inloggen met e-mail en wachtwoord.
   login: async (email, password) => {
     try {
       const result = await FirebaseService.auth.signInWithEmailAndPassword(email, password);
@@ -38,7 +38,7 @@ const AuthService = {
     }
   },
 
-  // Login with Google
+  // Inloggen met Google-account.
   loginWithGoogle: async () => {
     try {
       const result = await FirebaseService.auth.signInWithPopup(FirebaseService.googleProvider);
@@ -49,7 +49,7 @@ const AuthService = {
     }
   },
 
-  // Logout
+  // Uitloggen van de app.
   logout: async () => {
     try {
       await FirebaseService.auth.signOut();
@@ -59,7 +59,7 @@ const AuthService = {
     }
   },
 
-  // Reset password
+  // Wachtwoord-reset per e-mail versturen.
   resetPassword: async (email) => {
     try {
       await FirebaseService.auth.sendPasswordResetEmail(email);
@@ -69,13 +69,14 @@ const AuthService = {
     }
   },
 
-  // Create user profile in Firestore
+  // Een profiel aanmaken in de database voor een nieuwe gebruiker.
   createUserProfile: async (user, additionalData) => {
     if (!user) return;
 
     const userRef = FirebaseService.db.collection('users').doc(user.uid);
     const userDoc = await userRef.get();
 
+    // Alleen aanmaken als het profiel nog niet bestaat.
     if (!userDoc.exists) {
       try {
         await userRef.set({
@@ -91,13 +92,13 @@ const AuthService = {
     }
   },
 
-  // Ensure user profile exists
+  // Zorg dat het profiel er is (voor o.a. Google login).
   ensureUserProfile: async (user) => {
     if (!user) return;
     await AuthService.createUserProfile(user);
   },
 
-  // Set up auth state listener
+  // Zorgt dat we altijd weten wie is ingelogd (of niet).
   onAuthStateChanged: (callback) => {
     return FirebaseService.auth.onAuthStateChanged((user) => {
       AuthService.currentUser = user;
@@ -105,9 +106,8 @@ const AuthService = {
     });
   },
 
-  // Get current user
+  // Haal de huidige gebruiker op.
   getCurrentUser: () => AuthService.currentUser
 };
 
-// Export for global use
 window.AuthService = AuthService;

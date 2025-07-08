@@ -1,4 +1,5 @@
-// === AI SERVICE ===
+// Dit stuk code zorgt ervoor dat je een vraag naar de AI (Gemini) stuurt
+// en het antwoord ophaalt. Ook houdt het bij hoeveel verzoeken je per dag doet.
 
 const AIService = {
   API_KEY: "AIzaSyD_VXIB9bCRw9FebI2UgE5cRQEBdWm54uA",
@@ -27,7 +28,7 @@ const AIService = {
     }
   },
 
-  // Check rate limit
+  // Controleert of je niet te snel achter elkaar berichten stuurt.
   checkRateLimit: () => {
     const now = Date.now();
     if (now - AIService.lastRequestTime < AIService.MIN_REQUEST_INTERVAL) {
@@ -37,12 +38,13 @@ const AIService = {
     AIService.lastRequestTime = now;
   },
 
-  // Generate AI response
+  // Stuurt het bericht (en evt. bestand) naar de AI en wacht op antwoord.
   generateResponse: async (message, fileData = null) => {
     try {
       AIService.checkRateLimit();
       AIService.trackApiUsage();
 
+      // Zet het bericht en eventueel een bestand in het juiste formaat voor de API.
       const parts = [];
       if (message) parts.push({ text: message });
       if (fileData?.data) {
@@ -64,12 +66,14 @@ const AIService = {
         }
       };
 
+      // Stuur het verzoek naar de AI.
       const response = await fetch(`${AIService.API_URL}?key=${AIService.API_KEY}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(requestPayload),
       });
 
+      // Als het antwoord niet goed is, maak een foutmelding.
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(AIService.getErrorMessage(response.status, errorData));
@@ -77,6 +81,7 @@ const AIService = {
 
       const data = await response.json();
 
+      // Kijk of er een antwoord is, anders geef een foutmelding.
       if (!data.candidates?.[0]?.content) {
         throw new Error("Ongeldig antwoord van de AI. Probeer opnieuw.");
       }
@@ -84,7 +89,7 @@ const AIService = {
       const reply = data.candidates[0].content.parts[0].text;
       if (!reply) throw new Error("Geen antwoord ontvangen van de AI.");
 
-      // Format the reply (remove markdown bold formatting)
+      // Eventueel opmaak weghalen uit het antwoord.
       const formattedReply = reply.replace(/\*\*(.*?)\*\*/g, "$1").trim();
 
       return {
@@ -107,7 +112,7 @@ const AIService = {
     }
   },
 
-  // Get error message based on status code
+  // Maakt de foutmeldingen duidelijker voor de gebruiker.
   getErrorMessage: (status, errorData) => {
     if (status === 400 && errorData.error?.message) {
       if (errorData.error.message.includes("image")) {
@@ -126,17 +131,15 @@ const AIService = {
     } else if ([500, 502, 503].includes(status)) {
       return "Google servers zijn tijdelijk onbeschikbaar. Probeer over 1 minuut opnieuw.";
     }
-
     return "Er is een fout opgetreden bij het verwerken van je bericht.";
   },
 
-  // Get usage stats
+  // Geeft terug hoeveel verzoeken je vandaag al hebt gedaan.
   getUsageStats: () => ({
     dailyRequests: AIService.dailyRequests,
     lastResetDate: AIService.lastResetDate,
-    requestsRemaining: Math.max(0, 100 - AIService.dailyRequests) // Assuming 100 daily limit
+    requestsRemaining: Math.max(0, 100 - AIService.dailyRequests) // Stel, max 100 per dag
   })
 };
 
-// Export for global use
 window.AIService = AIService;

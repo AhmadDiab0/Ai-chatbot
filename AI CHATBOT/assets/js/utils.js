@@ -1,14 +1,16 @@
-// === UTILITY FUNCTIONS ===
+// In dit bestand staan allemaal kleine handige functies die door de hele app gebruikt worden.
 
 const Utils = {
-  // Dark mode management
+  // Alles wat met donkere modus te maken heeft.
   darkMode: {
+    // Zet donkere modus aan of uit.
     toggle: () => {
       document.body.classList.toggle('dark-mode');
       localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
       Utils.darkMode.updateIcons();
     },
 
+    // Zet donkere modus aan bij starten van de app als je dat eerder hebt gekozen.
     initialize: () => {
       const savedMode = localStorage.getItem('darkMode');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -20,6 +22,7 @@ const Utils = {
       Utils.darkMode.updateIcons();
     },
 
+    // Zet het icoontje om (zonnetje of maantje).
     updateIcons: () => {
       const updateIcon = (element) => {
         const icon = element?.querySelector('.material-symbols-rounded');
@@ -33,8 +36,9 @@ const Utils = {
     }
   },
 
-  // File handling
+  // Alles rondom bestanden uploaden.
   file: {
+    // Controleer of het bestand mag worden geüpload.
     validateFile: (file) => {
       const allowedTypes = ["image/png", "image/jpeg", "image/jpg", "image/webp"];
       const maxSize = 4 * 1024 * 1024; // 4MB
@@ -50,6 +54,7 @@ const Utils = {
       return true;
     },
 
+    // Zet het bestand om naar een dataurl (handig om te versturen/tonen).
     readAsDataURL: (file) => {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -59,20 +64,20 @@ const Utils = {
       });
     },
 
+    // Haalt alleen de data (zonder het stukje 'data:image/...') uit de dataurl.
     processFileData: (dataUrl, mimeType) => {
-      // Normalize JPEG mime type
       if (mimeType === "image/jpg") {
         mimeType = "image/jpeg";
       }
 
       return {
-        data: dataUrl.split(",")[1], 
+        data: dataUrl.split(",")[1],
         mime_type: mimeType
       };
     }
   },
 
-  // Form validation
+  // Allerlei manieren om te checken of velden goed zijn ingevuld.
   validation: {
     email: (email) => {
       const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -88,7 +93,7 @@ const Utils = {
     }
   },
 
-  // Message utilities
+  // Functies om fout- of succesmeldingen te laten zien bij inloggen/registreren.
   message: {
     showAuthError: (message, type = 'error') => {
       const authError = document.getElementById('auth-error');
@@ -116,7 +121,7 @@ const Utils = {
     }
   },
 
-  // Input utilities
+  // Zorgt dat het tekstvak automatisch groter wordt als je veel typt.
   input: {
     setupAutoResize: (textarea) => {
       const initialHeight = textarea.scrollHeight || 40;
@@ -133,6 +138,7 @@ const Utils = {
     }
   },
 
+  // Debounce zorgt dat een functie niet te vaak wordt aangeroepen (voor betere prestaties).
   debounce: (func, wait) => {
     let timeout;
     return function executedFunction(...args) {
@@ -145,6 +151,7 @@ const Utils = {
     };
   },
 
+  // Zorgt dat een datum netjes wordt weergegeven (dag-maand-jaar).
   formatDate: (date, locale = 'nl-NL') => {
     if (!date) return 'Onbekend';
 
@@ -157,5 +164,4 @@ const Utils = {
   }
 };
 
-// Export for global use
 window.Utils = Utils;
