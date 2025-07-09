@@ -19,7 +19,7 @@ const ChatService = {
     // We maken een bericht-object met tekst, wie het stuurde, evt. bestand, en tijd.
     const msg = {
       content,                // Het bericht zelf (tekst)
-      role,                   // Wie het is: 'user' of 'assistant'
+      role,                   // Wie het is: 'user' of 'bot'
       fileData: fileData || null, // Een bestand (bijvoorbeeld afbeelding), of niks
       timestamp: new Date().toISOString() // Tijdstip van verzenden, als tekst
     };

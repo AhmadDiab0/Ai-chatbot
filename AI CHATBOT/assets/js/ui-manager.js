@@ -115,12 +115,6 @@ const UIManager = {
     }
   },
 
-  setCurrentChatTitle: (title) => {
-    if (UIManager.elements.currentChatTitle) {
-      UIManager.elements.currentChatTitle.textContent = title;
-    }
-  },
-
   clearChat: () => {
     if (UIManager.elements.chatBody) {
       UIManager.elements.chatBody.innerHTML = '';
